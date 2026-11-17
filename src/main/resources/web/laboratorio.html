@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Panel del ejercicio · BikeStore</title><link rel="stylesheet" href="/styles.css"><script src="/laboratorio.js" defer></script></head>
+<body><main class="lab">
+<a class="back" href="/">← Volver a la tienda</a>
+<p class="eyebrow">BIKESTORE ASYNC V1.0</p><h1>Panel del ejercicio.</h1>
+<p>En la tienda, cada intento de cobro tiene un 50 % de probabilidad de fallo. Aquí puedes reproducir los dos resultados y observar el procesamiento en vivo.</p>
+<section class="panel lab-tests" aria-labelledby="tests-title">
+<h2 id="tests-title">Prueba el flujo completo</h2>
+<p>Los botones crean pedidos de demostración y los envían al mismo bróker y a los mismos consumidores de esta aplicación. El pago exitoso genera una confirmación local; el fallo permanente agota los tres reintentos y pasa a la DLQ.</p>
+<div class="lab-actions"><button class="button dark" data-scenario="SUCCESS">Probar pago exitoso</button><button class="button lab-failure" data-scenario="FAIL">Probar fallo y DLQ</button><button class="button lab-both" id="run-both">Ejecutar ambas pruebas</button></div>
+<p class="muted">Son pedidos ficticios de una Metro City a nombre de Cliente de demostración. Se guardan en esta instancia y puedes abrirlos desde el resultado. Las compras normales mantienen el pago aleatorio.</p>
+<p id="test-status" class="lab-status" role="status" aria-live="polite">Elige una prueba para comenzar.</p>
+<p id="test-error" class="error" role="alert"></p>
+<div id="test-results"></div>
+</section>
+<section class="panel lab-dlq" aria-labelledby="dlq-title">
+<h2 id="dlq-title">Cola de mensajes fallidos (DLQ)</h2>
+<p class="muted">Pedidos cuyo cobro agotó el intento inicial y los tres reintentos. La lista se actualiza automáticamente al terminar una prueba.</p>
+<div class="lab-actions"><button class="button dark" id="refresh">Actualizar mensajes</button><a class="button lab-both" href="/api/dlq" download="bikestore-dlq.json">Descargar para análisis offline ↓</a></div>
+<p id="error" class="error" role="alert"></p><pre id="messages" class="code">Consultando…</pre>
+</section>
+<p class="local-note">La confirmación se entrega por SMTP al buzón local de la aplicación; no se envía a Gmail ni Outlook. Cada paso registra pedidoId, timestamp y thread en consola. Las pruebas de este panel funcionan sin comandos. El script verificar.ps1 queda como comprobación opcional de persistencia tras reinicio.</p>
+</main></body></html>

@@ -1,0 +1,14 @@
+# Dependencias y archivos generados
+/.m2/
+/.archive/
+/target/
+/dist/
+/data/
+*.class
+*.log
+
+# Archivos temporales del editor y de Microsoft Office
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
