@@ -4,6 +4,7 @@
 /target/
 /dist/
 /data/
+/docs/
 *.class
 *.log
 

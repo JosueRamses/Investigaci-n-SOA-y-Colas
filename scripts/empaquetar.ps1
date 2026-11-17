@@ -13,7 +13,7 @@ if (!$stagingPath.StartsWith($stagingBase + [IO.Path]::DirectorySeparatorChar, [
 if (Test-Path -LiteralPath $stagingPath) { Remove-Item -LiteralPath $stagingPath -Recurse -Force }
 New-Item -ItemType Directory -Path $stagingPath,$distPath -Force | Out-Null
 try {
-    foreach ($folder in @('src','docs','scripts')) {
+    foreach ($folder in @('src','scripts')) {
         foreach ($file in (Get-ChildItem -LiteralPath (Join-Path $projectRoot $folder) -Recurse -File)) {
             if ($file.Name.StartsWith('~$') -or $file.Extension -eq '.tmp') { continue }
             $relativePath = $file.FullName.Substring($projectRoot.Length + 1)

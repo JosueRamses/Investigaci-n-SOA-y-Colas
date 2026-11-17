@@ -45,7 +45,6 @@ src/main/java/edu/bikestore/    Backend Java
   OrderStore.java             Pedidos y seguimiento en disco
   MailService.java            Correo SMTP local
 src/main/resources/web/       Interfaz de la tienda y panel del ejercicio
-docs/                         Informe Markdown, PDF y verificacion
 scripts/                      Pruebas y empaquetado
 pom.xml                       Dependencias y compilacion Maven
 iniciar.bat                   Inicio en Windows
@@ -60,6 +59,7 @@ Carpetas locales generadas, excluidas de Git:
 | `.m2/` | Caché local de dependencias Maven, si se utiliza. |
 | `data/` | Pedidos, mensajes persistentes y correos de la aplicación. |
 | `.archive/` | Entregas y resultados anteriores conservados de forma recuperable durante la organización. |
+| `docs/` | Informes académicos locales, entregados por separado y excluidos de GitHub. |
 
 `data/` se conserva entre ejecuciones. No contiene código fuente y no se incluye en el ZIP ni en GitHub.
 
@@ -92,8 +92,6 @@ node scripts/browser-lab-check.mjs
 
 Las pruebas usan procesos y datos aislados en los puertos 18081, 18082 y 18083. Guardan logs, pedidos y capturas en `target/test-results/`. No modifican los pedidos de `data/`.
 
-Ver [resultados y alcance de la verificación](docs/VERIFICACION.md).
-
 ## Generar el ZIP de entrega
 
 Después de compilar:
@@ -102,7 +100,7 @@ Después de compilar:
 .\scripts\empaquetar.ps1
 ```
 
-Genera `dist/BikeStore-Async-v1.0.zip` con el JAR, el código fuente, la documentación y los scripts. No incluye cachés, datos de clientes, perfiles de navegador ni resultados temporales. La carpeta de preparación se elimina al terminar.
+Genera `dist/BikeStore-Async-v1.0.zip` con el JAR, el código fuente, el README y los scripts. Los informes académicos se entregan por separado. No incluye cachés, datos de clientes, perfiles de navegador ni resultados temporales. La carpeta de preparación se elimina al terminar.
 
 ## API
 
@@ -131,10 +129,3 @@ El servidor calcula los importes desde el catálogo. Las pruebas forzadas de `/a
 
 La aplicación escucha solo en el equipo local. Es una demostración académica sin autenticación de usuarios, inventario físico ni pasarela bancaria real.
 
-## Informe académico
-
-- [Word editable](docs/INFORME_SOA_MENSAJERIA.docx).
-- [PDF](docs/INFORME_SOA_MENSAJERIA.pdf).
-- [Markdown y referencias oficiales](docs/INFORME_SOA_MENSAJERIA.md).
-
-El informe desarrolla los puntos 1 y 2; la aplicación corresponde al punto 3.
